@@ -1,18 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div>
+    <router-link to="/signup">登録はこちら</router-link>
+    <router-link to="/dashboard">ダッシュボードはこちら</router-link>
+    <loginform />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import Loginform from "@/components/loginform.vue";
 
 export default Vue.extend({
   name: "Home",
+
   components: {
-    HelloWorld,
+    Loginform,
   },
 });
 </script>
