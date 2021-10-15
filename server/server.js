@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mysql = require('mysql')
 const session = require('express-session')
+const bcrypt = require('bcrypt')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -71,10 +72,18 @@ app.get('/logout',(req,res) => {
 //SIGNUP
 app.post('/signup',(req,res) =>{
   //DBに保存
-  const name = req.body.name;
-  const password = req.body.password;
+  let username = req.body.name;
+  let password = req.body.password;
+
+  //ハッシュ化
+  username = bcrypt.hashSync(username, 10);
+  password = bcrypt.hashSync(password, 10);
+
+  console.log(username,password);
+
+  //ハッシュ化したusername password を保存
   const sql = 'insert into users (name, password)values(?,?);'
-  con.query(sql,[name,password],function(err, result,fields){
+  con.query(sql,[username,password],function(err, result,fields){
     if (err) throw err;
     console.log(result);
   })

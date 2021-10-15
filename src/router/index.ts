@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
-import Signup from "../views/Signup.vue";
-import Dashboard from "../views/Dashboard.vue";
+import Home from "../views/HOME.vue";
+import Signup from "../views/SIGNUP.vue";
+import Dashboard from "../views/DASHBOARD.vue";
 
 Vue.use(VueRouter);
 
