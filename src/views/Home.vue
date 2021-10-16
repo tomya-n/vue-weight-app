@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link to="/signup">登録はこちら</router-link>
-    <!-- <router-link to="/dashboard">ダッシュボードはこちら</router-link> -->
+    <router-link to="/dashboard">ダッシュボードはこちら</router-link>
     <loginform />
   </div>
 </template>

@@ -48,8 +48,9 @@ app.post('/',(req,res) => {
     }
 
     if(result.length > 0){
-      req.session.user = username; //sessionにidを登録
+      req.session.username = username; //sessionにidを登録
       console.log('セッション登録');
+      console.log(req.session);
       res.send(result);
     }else{
       res.send({message: "no message"})
@@ -94,5 +95,5 @@ app.post('/signup',(req,res) =>{
 // DASHBOARD
 app.get('/dashboard',(req,res) => {
   console.log(req.session);
-  res.send(req.session.user);
+  res.send(req.session.username);
 })

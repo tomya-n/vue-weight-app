@@ -6,7 +6,7 @@
           <v-row>
             <v-col cols="12" md="4">
               <v-text-field
-                v-model="name"
+                v-model="loginData.username"
                 :counter="10"
                 label="Name"
                 required
@@ -15,7 +15,7 @@
 
             <v-col cols="12" md="4">
               <v-text-field
-                v-model="password"
+                v-model="loginData.password"
                 :counter="10"
                 label="Password"
                 required
@@ -23,6 +23,7 @@
             </v-col>
           </v-row>
         </v-container>
+        <v-btn @click="console" elevation="2"> log </v-btn>
         <v-btn @click="login" elevation="2"> ログイン </v-btn>
       </v-form>
     </v-row>
@@ -36,32 +37,35 @@ export default Vue.extend({
   name: "Loginform",
 
   data: () => ({
-    name: "",
-    password: "",
-    message: "",
+    loginData: {
+      username: "",
+      password: "",
+    },
   }),
   methods: {
+    console() {
+      console.log(this.loginData.username);
+      console.log(this.loginData.password);
+    },
     login() {
-      if ((this.name || this.password) === "") {
+      this.$store.dispatch("save", this.loginData);
+      if ((this.loginData.username || this.loginData.password) === "") {
         alert("入力してください");
-        (this.name = ""), (this.password = "");
+        (this.loginData.username = ""), (this.loginData.password = "");
       } else {
         this.axios
           .post("/", {
             //formの値を格納
-            name: this.name,
-            password: this.password,
+            name: this.loginData.username,
+            password: this.loginData.password,
           })
           .then((res) => {
-            // console.log(res);
-            // console.log(res.data[0].name + "さんは登録されています");
-            this.message = res.data.message;
             this.$router.push("/dashboard");
           })
           .catch((err) => {
             console.log(err);
           });
-        (this.name = ""), (this.password = "");
+        (this.loginData.username = ""), (this.loginData.password = "");
       }
     },
   },

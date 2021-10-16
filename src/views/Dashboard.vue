@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>ダッシュボード 画面</div>
-    <p>{{ user }} さん、こんにちわ！！</p>
+    <p>{{ username }} さん、こんにちわ！！</p>
 
     <a href="/">top</a>
     <a @click="logout" href="/">ログアウト</a>
@@ -16,8 +16,7 @@ export default Vue.extend({
 
   data() {
     return {
-      hoge: "ほげ",
-      user: "",
+      username: ""
     };
   },
   methods: {
@@ -33,7 +32,8 @@ export default Vue.extend({
       if (res.data === "") {
         this.$router.push("/");
       } else {
-        this.user = res.data;
+        console.log(res.data);
+        this.username = res.data;
       }
     });
   },
