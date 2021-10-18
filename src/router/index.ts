@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/HOME.vue";
 import Signup from "../views/SIGNUP.vue";
 import Dashboard from "../views/DASHBOARD.vue";
+import Entry from "../views/ENTRY.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes: Array<RouteConfig> = [
     path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
+  },
+  {
+    path: "/entry",
+    name: "Entry",
+    component: Entry,
   },
 ];
 
