@@ -93,7 +93,7 @@ app.post('/signup',(req,res) =>{
 
 
 // DASHBOARD
-app.get('/dashboard/:id',(req,res) => {
+app.get('/dashboard/',(req,res) => {
   console.log(req.session);
   const id = req.params.id;
   console.log(id);
