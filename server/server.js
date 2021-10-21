@@ -93,7 +93,9 @@ app.post('/signup',(req,res) =>{
 
 
 // DASHBOARD
-app.get('/dashboard',(req,res) => {
+app.get('/dashboard/:id',(req,res) => {
   console.log(req.session);
+  const id = req.params.id;
+  console.log(id);
   res.send(req.session.username);
 })

@@ -23,7 +23,6 @@
             </v-col>
           </v-row>
         </v-container>
-        <v-btn @click="console" elevation="2"> log </v-btn>
         <v-btn @click="login" elevation="2"> ログイン </v-btn>
       </v-form>
     </v-row>
