@@ -95,5 +95,14 @@ app.post('/signup',(req,res) =>{
 // DASHBOARD
 app.get('/dashboard/',(req,res) => {
   console.log(req.session);
-  res.send(req.session.username);
+  const output = {
+    username: req.session.username,
+  }
+  const sql = 'select * from physical where user_id=?;'
+  con.query(sql,[req.session.username],function(err, result,fields){
+    if (err) throw err;
+    console.log(result);
+    output.physical = result;
+    res.json(output);
+  })
 })

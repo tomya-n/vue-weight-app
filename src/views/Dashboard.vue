@@ -3,6 +3,13 @@
     <div>ダッシュボード 画面</div>
     <p>{{ username }} さん、こんにちわ！！</p>
 
+    <ul>
+      <li v-for="physical in physical_data" :key="physical.id">
+        {{ physical.weight }}kg
+        {{ physical.height }}cm
+      </li>
+    </ul>
+
     <a href="/">top</a>
     <a href="/entry">entry</a>
     <a @click="logout">ログアウト</a>
@@ -18,6 +25,10 @@ export default Vue.extend({
   data() {
     return {
       username: "",
+      physical_data: {
+        weight: "",
+        height: "",
+      },
     };
   },
   methods: {
@@ -29,14 +40,14 @@ export default Vue.extend({
     },
   },
   created() {
-    this.axios.get("/dashboard").then((res) => {
+      this.axios.get("/dashboard").then((res) => {
       if (res.data === "") {
         this.$router.push("/");
       } else {
-        console.log(res.data);
-        this.username = res.data;
+        this.username = res.data.username;
+        this.physical_data = res.data.physical;
       }
-    });
+    })
   },
 });
 </script>
