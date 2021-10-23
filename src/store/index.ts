@@ -8,13 +8,11 @@ export default new Vuex.Store({
   state: {
     loginData: {
       username: "",
-      password: "",
     },
   },
   mutations: {
     saveLoginData(state, payload) {
       state.loginData.username = payload.username;
-      state.loginData.password = payload.password;
     },
   },
   actions: {

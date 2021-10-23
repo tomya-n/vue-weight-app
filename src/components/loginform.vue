@@ -42,10 +42,6 @@ export default Vue.extend({
     },
   }),
   methods: {
-    console() {
-      console.log(this.loginData.username);
-      console.log(this.loginData.password);
-    },
     login() {
       this.$store.dispatch("save", this.loginData);
       if ((this.loginData.username || this.loginData.password) === "") {
