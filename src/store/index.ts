@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import persistedState from "vuex-persistedstate"
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
@@ -23,5 +23,10 @@ export default new Vuex.Store({
     },
   },
   modules: {},
-  plugins: [persistedState()],
+  plugins: [
+    createPersistedState({
+      key: "vue-weight-app",
+      storage: window.sessionStorage,
+    }),
+  ],
 });

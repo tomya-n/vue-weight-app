@@ -5,7 +5,7 @@
 
     <a href="/">top</a>
     <a href="/entry">entry</a>
-    <a @click="logout" href="/">ログアウト</a>
+    <a @click="logout">ログアウト</a>
   </div>
 </template>
 
@@ -22,8 +22,8 @@ export default Vue.extend({
   },
   methods: {
     logout() {
-      this.axios.get("/logout").then((res) => {
-        console.log(res);
+      this.axios.get("/logout").then(() => {
+        sessionStorage.removeItem("vue-weight-app");
         this.$router.push("/");
       });
     },
