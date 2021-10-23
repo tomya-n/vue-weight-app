@@ -17,7 +17,7 @@ export default Vue.extend({
 
   data() {
     return {
-      username: ""
+      username: "",
     };
   },
   methods: {

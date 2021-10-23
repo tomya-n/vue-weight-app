@@ -17,8 +17,8 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    save(context,payload) {
-      context.commit("saveLoginData",payload);
+    save(context, payload) {
+      context.commit("saveLoginData", payload);
     },
   },
   modules: {},

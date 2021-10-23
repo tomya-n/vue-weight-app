@@ -59,7 +59,7 @@ export default Vue.extend({
             password: this.loginData.password,
           })
           .then((res) => {
-            this.$router.push("/dashboard");
+            this.$router.push("/dashboard/");
           })
           .catch((err) => {
             console.log(err);
