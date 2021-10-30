@@ -41,7 +41,7 @@ export default Vue.extend({
   },
   created() {
       this.axios.get("/dashboard").then((res) => {
-      if (res.data === "") {
+      if (res.data.username === undefined) {
         this.$router.push("/");
       } else {
         this.username = res.data.username;
