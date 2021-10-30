@@ -44,7 +44,7 @@ export default Vue.extend({
   methods: {
     login() {
       this.$store.dispatch("save", this.loginData);
-      if ((this.loginData.username || this.loginData.password) === "") {
+      if ((this.loginData.username === "" || this.loginData.password) === "") {
         alert("入力してください");
         (this.loginData.username = ""), (this.loginData.password = "");
       } else {
