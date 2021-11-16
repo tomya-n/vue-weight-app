@@ -3,12 +3,20 @@
     <div>ダッシュボード 画面</div>
     <p>{{ username }} さん、こんにちわ！！</p>
 
-    <Chart v-if="loaded" :chartData="chartItems" :options="chartOptions" />
+    <div class="chart-wrapper">
+      <Chart v-if="loaded" :chartData="chartItems" :options="chartOptions" />
+    </div>
     <a href="/">top</a>
     <a href="/entry">entry</a>
     <a @click="logout">ログアウト</a>
   </div>
 </template>
+
+<style>
+  .chart-wrapper{
+    width: 50%;
+  }
+</style>
 
 <script>
 import Vue from "vue";
@@ -25,7 +33,7 @@ export default Vue.extend({
         labels: [],
         datasets: [
           {
-            label: "計測時ごとの体重",
+            label: "体重経過",
             data: [],
             backgroundColor: "lightblue",
           },
@@ -86,7 +94,8 @@ export default Vue.extend({
           index,
           arr
         ) {
-          return arr[index].created_at;
+          return val.created_at.substr(0,10);
+          // return arr[index].created_at;
         });
         this.loaded = true;
       });
