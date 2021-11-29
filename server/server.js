@@ -94,15 +94,35 @@ app.post('/signup',(req,res) =>{
 
 // DASHBOARD
 app.get('/dashboard/',(req,res) => {
-  console.log(req.session);
   const output = {
     username: req.session.username,
   }
-  const sql = 'select * from physical where user_id=?;'
+  const sql = 'select user_id,weight,height,created_at from physical where user_id=? order by created_at';
   con.query(sql,[req.session.username],function(err, result,fields){
     if (err) throw err;
     console.log(result);
     output.physical = result;
     res.json(output);
+  })
+})
+
+app.post('/dashboard/',(req,res) => {
+  const data = req.body;
+  const weight = Number(data.weight);
+  const date = new Date(data.date);
+  const height = Number(data.height);
+  const user_id = req.session.username;
+
+  console.log(date);
+  console.log(weight);
+  console.log(height);
+  console.log(user_id);
+  // console.log(req.session);
+
+  const sql = 'insert into physical (weight,height,user_id,created_at) values (?,?,?,?)'
+  con.query(sql,[weight,height,user_id,date],function(err, result,fields){
+    if (err) throw err;
+    console.log(result);
+    console.log(fields);
   })
 })

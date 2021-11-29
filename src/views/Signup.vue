@@ -1,11 +1,12 @@
 <template>
   <div>
+    <h2>ユーザー登録</h2>
     <v-container>
       <v-row class="text-center">
         <v-form>
           <v-container>
             <v-row>
-              <v-col cols="12" md="4">
+              <v-col cols="12" md="6">
                 <v-text-field
                   v-model="name"
                   :counter="10"
@@ -14,7 +15,7 @@
                 ></v-text-field>
               </v-col>
 
-              <v-col cols="12" md="4">
+              <v-col cols="12" md="6">
                 <v-text-field
                   v-model="password"
                   :counter="10"
