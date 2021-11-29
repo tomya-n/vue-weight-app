@@ -1,21 +1,21 @@
 <template>
   <div>
+    <a href="/">top</a>
+    <a href="/entry">entry</a>
+    <a @click="logout">ログアウト</a>
     <div>ダッシュボード 画面</div>
     <p>{{ username }} さん、こんにちわ！！</p>
 
     <div class="chart-wrapper">
       <Chart v-if="loaded" :chartData="chartItems" :options="chartOptions" />
     </div>
-    <a href="/">top</a>
-    <a href="/entry">entry</a>
-    <a @click="logout">ログアウト</a>
   </div>
 </template>
 
 <style>
-  .chart-wrapper{
-    width: 50%;
-  }
+.chart-wrapper {
+  width: 50%;
+}
 </style>
 
 <script>
@@ -89,12 +89,8 @@ export default Vue.extend({
           return arr[index].weight;
         });
         //createdAt
-        this.chartItems.labels = res.data.physical.map(function (
-          val,
-          index,
-          arr
-        ) {
-          return val.created_at.substr(0,10);
+        this.chartItems.labels = res.data.physical.map(function (val) {
+          return val.created_at.substr(0, 10);
           // return arr[index].created_at;
         });
         this.loaded = true;

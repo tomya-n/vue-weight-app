@@ -1,8 +1,6 @@
 <template>
   <v-app>
-    <div class="headbar">
-      WeightApp
-    </div>
+    <div class="headbar">WeightApp</div>
     <v-main>
       <router-view />
     </v-main>
@@ -10,13 +8,13 @@
 </template>
 
 <style>
-  .headbar{
-    text-align: center;
-    padding: 20px 0;
-    background: rgb(28, 171, 253);
-    font-weight: bolder;
-    color: #fff;
-  }
+.headbar {
+  text-align: center;
+  padding: 20px 0;
+  background: rgb(28, 171, 253);
+  font-weight: bolder;
+  color: #fff;
+}
 </style>
 
 <script lang="ts">
