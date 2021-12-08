@@ -11,9 +11,10 @@
 .headbar {
   text-align: center;
   padding: 20px 0;
-  background: rgb(28, 171, 253);
+  background: #acd8e6;
   font-weight: bolder;
   color: #fff;
+  box-shadow: 2px 2px 6px #acd8e6;
 }
 </style>
 
