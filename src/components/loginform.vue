@@ -1,5 +1,6 @@
 <template>
   <form>
+    <h2 class="title">Login</h2>
     <v-text-field
       v-model="loginData.username"
       :counter="10"
@@ -20,41 +21,17 @@
       クリア
     </v-btn>
   </form>
-  <!-- <v-container>
-    <v-row class="text-center">
-      <v-form>
-        <v-container>
-          <v-row>
-            <v-col cols="12" md="4">
-              <v-text-field
-                v-model="loginData.username"
-                :counter="10"
-                label="Name"
-                required
-              ></v-text-field>
-            </v-col>
-
-            <v-col cols="12" md="4">
-              <v-text-field
-                v-model="loginData.password"
-                :counter="10"
-                label="Password"
-                required
-              ></v-text-field>
-            </v-col>
-          </v-row>
-        </v-container>
-        <v-btn @click="login" elevation="2"> ログイン </v-btn>
-      </v-form>
-    </v-row>
-  </v-container> -->
 </template>
 
-<style lang="css">
+<style lang="scss">
   form{
     width: 30%;
-    margin: 0 auto;
-    padding: 0 30px;
+    margin: 8% auto 0;
+    padding: 2.5% 5% 5%;
+    box-shadow: 0px 2px 10px rgb(175, 175, 175);
+    .title{
+      text-align: center;
+    }
   }
 </style>
 

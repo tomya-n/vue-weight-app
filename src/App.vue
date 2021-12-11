@@ -7,7 +7,7 @@
   </v-app>
 </template>
 
-<style>
+<style scoped>
 .headbar {
   text-align: center;
   padding: 20px 0;
