@@ -5,21 +5,16 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 体重管理アプリ
+Vue.jsやデータベース学習のためにこのアプリケーションを作りました。
+現状書き込みと表示しか機能がないので更新・削除の機能も追加していきたい。
+Chart.jsも以前から使ってみたいと思っていたので使用することができてよかった。
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 使用した技術など
+・Javascript(node)
+・Vue.js
+・Chart.js(Vue-chart.js)
+・MySQL
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# vue-weight-app
+## 反省
+Typescriptが全然使えていないのでTypescriptを意識してリファクタリングを進めたい。
